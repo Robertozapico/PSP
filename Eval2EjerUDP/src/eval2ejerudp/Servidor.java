@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author alumnop
  */
-public class Eval2EjerUDP {
+public class Servidor {
 
     /**
      * @param args the command line arguments
@@ -37,11 +37,11 @@ public class Eval2EjerUDP {
             
             socket.send(paquete);
         } catch (SocketException ex) {
-            Logger.getLogger(Eval2EjerUDP.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnknownHostException ex) {
-            Logger.getLogger(Eval2EjerUDP.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Eval2EjerUDP.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
