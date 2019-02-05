@@ -20,6 +20,7 @@ public class Main {
         Emisor emisor = new Emisor();
         PersonaRoberto persona = new PersonaRoberto();
         
+        System.out.println(emisor.getClass().getTypeName());
         persona.setNombre("Paco");
         persona.setEdad(25);
             
