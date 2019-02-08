@@ -33,6 +33,7 @@ public class Servidor {
 
     public String enviarNumero(String nombreCliente) {
         String mensaje = "";
+        
         try {
             //while(listaNumeros.size()>0){
                 DatagramSocket socket = new DatagramSocket();

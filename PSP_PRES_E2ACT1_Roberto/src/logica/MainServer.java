@@ -33,7 +33,7 @@ El ejercicio se deberá de realizar con un monitor que gestione las peticiones
 de los clientes hasta que se quede sin números el servidor, momento que
 deberá avisar a los clientes para que cierren sus conexiones.
 ¿Dónde pondrías el monitor? En el Servidor o en el cliente*/
-        /*
+ /*
         EXPLICACION
         lista numeros 0-100 en el servidor
 cliente solicita numero
@@ -49,14 +49,17 @@ al quedarse sin numero se envia aviso a los clientes para que cierren su sesion
 donde pondrias el monitor? en el servidor
 
 solo un cliente accede y coge un numero, el resto espera
-*/
-        
+         */
+
         Servidor servidor = new Servidor();
         //
         System.out.println(servidor.seleccionarNumero());
-        servidor.enviarNumero("localhost");
+        for (int i = 0; i < 10; i++) {
+
+            servidor.enviarNumero("localhost");
+        }
         //
         System.out.println(servidor.mostrarNumeros());
     }
-    
+
 }
