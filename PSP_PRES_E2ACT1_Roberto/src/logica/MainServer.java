@@ -5,6 +5,9 @@
  */
 package logica;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.Cliente;
 import modelo.Servidor;
 
 /**
@@ -53,12 +56,19 @@ solo un cliente accede y coge un numero, el resto espera
 
         Servidor servidor = new Servidor();
         //
-        System.out.println(servidor.seleccionarNumero());
-        for (int i = 0; i < 10; i++) {
+        //System.out.println(servidor.seleccionarNumero());
+        /*for (int i = 0; i < 10; i++) {
 
             servidor.enviarNumero("localhost");
-        }
+        }*/
         //
+        Cliente cliente = new Cliente();
+        cliente.setIdCliente("cliente1");
+        try {
+            servidor.enviarNumero(cliente);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MainServer.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println(servidor.mostrarNumeros());
     }
 

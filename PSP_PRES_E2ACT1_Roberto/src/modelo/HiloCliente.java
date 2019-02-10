@@ -13,7 +13,8 @@ import java.util.logging.Logger;
  *
  * @author alumnop
  */
-public class HiloCliente extends Thread{
+public class HiloCliente extends Thread {
+
     private Cliente cliente;
     private Servidor servidor;
 
@@ -24,13 +25,18 @@ public class HiloCliente extends Thread{
 
     @Override
     public void run() {
-        
-    }
-/*
-    public synchronized void tiempoComer() throws InterruptedException {
-        if (barra.isHuecoOcupado() == true) {
-            int tiempo = (int) (Math.random() * 1000) + 1000;
-            sleep(tiempo);
+        do{
+        try {
+            servidor.enviarNumero(cliente);
+            cliente.recibirPaquete();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(HiloCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+        }while(servidor.getListaNumeros().size()>0);
+        if(servidor.getListaNumeros().size()==0){
+            System.out.println("No quedan más números");
+            System.out.println("Cantidad de números recogidos: " +cliente.getListaNumeros().size());
+            System.out.println("Números recogidos: " +cliente.getListaNumeros());
+        }
+    }
 }
