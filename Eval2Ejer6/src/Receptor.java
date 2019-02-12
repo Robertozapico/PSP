@@ -38,7 +38,7 @@ public class Receptor {
 
             socket.receive(packet);
 
-            Persona mensaje = (Persona) Serializar.toObject(buffer);
+            PersonaRoberto mensaje = (PersonaRoberto) Serializar.toObject(buffer);
             System.out.println("El receptor ha recibido a: " +mensaje);
             socket.close();
         } catch (SocketException ex) {

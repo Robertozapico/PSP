@@ -31,7 +31,7 @@ que, en nuestro caso, estará situado en la misma máquina. La longitud será de
             InetAddress equipoCliente = InetAddress.getByName(receptor);
             DatagramPacket paquete = new DatagramPacket(buffer, buffer.length, equipoCliente, 2000);
 
-            
+            socket.send(paquete);
             socket.close();
         } catch (SocketException ex) {
             Logger.getLogger(Emisor.class.getName()).log(Level.SEVERE, null, ex);
