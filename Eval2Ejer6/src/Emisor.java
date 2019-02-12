@@ -26,12 +26,12 @@ que, en nuestro caso, estará situado en la misma máquina. La longitud será de
 
         try {
             DatagramSocket socket = new DatagramSocket();
-            final int longitud = 4096;
+            final int longitud = 1024;
             byte[] buffer = Serializar.toBytes(persona);
             InetAddress equipoCliente = InetAddress.getByName(receptor);
             DatagramPacket paquete = new DatagramPacket(buffer, buffer.length, equipoCliente, 2000);
 
-            socket.send(paquete);
+            
             socket.close();
         } catch (SocketException ex) {
             Logger.getLogger(Emisor.class.getName()).log(Level.SEVERE, null, ex);

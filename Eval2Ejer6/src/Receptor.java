@@ -30,7 +30,7 @@ public class Receptor {
     }
 
     public void recibirDatagrama() {
-        final int longitud = 4096;
+        final int longitud = 1024;
         try {
             DatagramSocket socket = new DatagramSocket(2000);
             byte[] buffer = new byte[longitud];
