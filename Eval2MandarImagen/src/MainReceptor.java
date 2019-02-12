@@ -25,7 +25,7 @@ public class MainReceptor {
      */
     public static void main(String[] args) throws FileNotFoundException, SocketException, IOException {
         
-        File imagenDescargada = new File("imagenDescargada.png");
+        File imagenDescargada = new File("imagenDescargada.jpg");
         byte[] buffer = new byte[4096];
         
         FileOutputStream fos = new FileOutputStream(imagenDescargada);

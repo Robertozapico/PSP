@@ -26,7 +26,7 @@ public class MainEmisor {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, SocketException, IOException{
-        File imagen = new File ("/home/alumnop/Documentos/Proyectos/PSP1819/Eval2MandarImagen/src/img/pmdm.png");
+        File imagen = new File ("/home/alumnop/Documentos/Proyectos/PSP1819/Eval2MandarImagen/src/img/descarga.png");
         byte[] buffer = new byte[4096];
         
         FileInputStream fis = new FileInputStream(imagen);
