@@ -43,7 +43,7 @@ public class MainEmisor {
         
         
         for (int i = 0; i < numPaquetes; i++) {
-            fis.read(buffer, 0, buffer.length);
+            dis.read(buffer, 0, buffer.length);
             server.send(DGP);
         }
         
