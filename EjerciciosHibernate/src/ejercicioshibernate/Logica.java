@@ -1,0 +1,85 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicioshibernate;
+
+import modelo.Actor;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+/**
+ *
+ * @author alumnop
+ */
+public class Logica {
+
+    private Session sesion;
+    private Transaction tx;
+
+    private void iniciaOperacion() throws HibernateException {
+        sesion = HibernateUtil.getSessionFactory().openSession();
+        tx = sesion.beginTransaction();
+    }
+
+    private void manejaExcepcion(HibernateException he) throws HibernateException {
+        tx.rollback();
+        throw new HibernateException("Ocurrió un error en la capa de acceso a datos", he);
+    }
+
+    public long guardaActor(Actor actor) {
+        short id = 400;
+
+        try {
+            iniciaOperacion();
+            id = (short) sesion.save(actor);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            sesion.close();
+        }
+        return id;
+    }
+
+    public void actualizaActor(Actor actor) throws HibernateException {
+        try {
+            iniciaOperacion();
+            sesion.update(actor);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            sesion.close();
+        }
+    }
+
+    public void eliminaActor(Actor actor) throws HibernateException {
+        try {
+            iniciaOperacion();
+            sesion.delete(actor);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
+        } finally {
+            sesion.close();
+        }
+    }
+
+    public Actor obtenActor(long idContacto) throws HibernateException {
+        Actor actor = null;
+
+        try {
+            iniciaOperacion();
+            actor = (Actor) sesion.get(Actor.class, idContacto);
+        } finally {
+            sesion.close();
+        }
+        return actor;
+    }
+}
