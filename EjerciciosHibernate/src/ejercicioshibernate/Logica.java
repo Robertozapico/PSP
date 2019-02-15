@@ -5,6 +5,7 @@
  */
 package ejercicioshibernate;
 
+import java.util.List;
 import modelo.Actor;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -71,7 +72,7 @@ public class Logica {
         }
     }
 
-    public Actor obtenActor(long idContacto) throws HibernateException {
+    public Actor obtenActor(short idContacto) throws HibernateException {
         Actor actor = null;
 
         try {
@@ -81,5 +82,18 @@ public class Logica {
             sesion.close();
         }
         return actor;
+    }
+
+    public List<Actor> obtenListaActores() throws HibernateException {
+        List<Actor> listaActores = null;
+
+        try {
+            iniciaOperacion();
+            listaActores = sesion.createQuery("from Actor").list();
+        } finally {
+            sesion.close();
+        }
+
+        return listaActores;
     }
 }

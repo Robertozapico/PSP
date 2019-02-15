@@ -5,6 +5,7 @@
  */
 package ejercicioshibernate;
 
+import java.util.Calendar;
 import java.util.Date;
 import modelo.Actor;
 
@@ -19,18 +20,36 @@ public class EjerciciosHibernate {
      */
     public static void main(String[] args) {
         Logica logica = new Logica();
+        ActoresDAO daoActores = new ActoresDAO();
         Actor actor = new Actor();
-        short id = 400;
+        short id = 198;
         actor.setActorId(id);
-        actor.setFirstName("Rodolfo");
-        actor.setLastName("Zapico");
+        actor.setFirstName("Pascualo");
+        actor.setLastName("Zapi");
         Date fechita = new Date();
+
         actor.setLastUpdate(fechita);
-        logica.guardaActor(actor);
+        /*logica.guardaActor(actor);
         
-        //ARRIBA FUNCIONA
+        
         actor.setLastName("Zapi");
         logica.actualizaActor(actor);
+        logica.eliminaActor(actor);
+        actor = logica.obtenActor(id);
+        System.out.println(actor.getFirstName());
+        System.out.println(logica.obtenListaActores());
+        
+        
+        daoActores.guardaActor(actor);
+        actor.setLastName("ZapiCo");
+        daoActores.actualizaActor(actor);
+        logica.eliminaActor(actor);
+        actor = daoActores.obtenActor(id);
+        System.out.println(actor.getFirstName());
+        System.out.println(daoActores.obtenListaActor());
+         */
+        //ARRIBA FUNCIONA
+        
     }
-    
+
 }
